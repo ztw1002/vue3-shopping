@@ -1,7 +1,6 @@
 import '@/styles/common.scss'
-import { getCategoryAPI } from '@/apis/testApi'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {useIntersectionObserver} from '@vueuse/core'
+import {lazyPlugin} from "@/directives";
 
 import App from './App.vue'
 import router from './router'
@@ -10,9 +9,5 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-
-// 获得响应的结果
-getCategoryAPI().then(res => {
-  
-})
+app.use(lazyPlugin)
 app.mount('#app')
