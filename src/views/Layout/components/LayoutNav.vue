@@ -1,12 +1,15 @@
 <script setup>
 import router from "@/router";
 import { useUserStore } from "@/stores/userStore";
+import { useCartStore } from "@/apis/cartStore";
 
 
 const userStore = useUserStore();
+const cartStore = useCartStore()
 
 const confirm = () => {
   userStore.clearUserInfo()
+  cartStore.clearCart()
   router.push('/login')
 }
 
